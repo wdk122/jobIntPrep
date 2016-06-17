@@ -44,18 +44,30 @@ var insertionSort = function(items) {
   return items;
 }
 
-
-
 // ==================================================================
 
-var selectionSort = function(items) {
+var bubbleSort = function(items) {
+  var i,
+      j,
+      temp,
+      len = items.length;
 
+  for (i = 0; i < len - 1; i++) {
+    for (j = 0; j < len - 1 - i; j++) {
+      if (items[j] > items[j + 1]) {
+        temp = items[j + 1];
+        items[j + 1] = items[j];
+        items [j] = temp;
+      }
+    }
+  }
+  return items;
 }
 
 // ==================================================================
 
-var bubbleSort = function(items) {
-
+var selectionSort = function(items) {
+  
 }
 
 // ==================================================================
