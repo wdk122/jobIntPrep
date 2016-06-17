@@ -30,7 +30,26 @@ BUBBLE SORT
 Given an array of length n, the bubble sort function loops through the array n - 1 times from left to right, pushing high numbers to the right.
 
 =====================================================================
+
+SELECTION SORT
+
+Given an array of length n, the selection sort function loops through the array n - 1 times from left to right. On a given loop i, where i is the ith loop through the array, the minimum value found in the loop is swapped with the value at position i in the array.
+
+Not stable.
+
 =====================================================================
+
+MERGE SORT
+
+The merge sort function returns the array if length is less than 2. Otherwise, it splits the array in half (if length is odd, shorter subarray is on the left.) After this split, the function returns a merge of the merge-sorted left side and the merge-sorted right side.
+
+
+
+(from https://www.nczonline.net/blog/2012/10/02/computer-science-and-javascript-merge-sort/):
+    The algorithm for merge sort is based on the idea that it’s easier to merge two already sorted lists than it is to deal with a single unsorted list. To that end, merge sort starts by creating n number of one item lists where n is the total number of items in the original list to sort. Then, the algorithm proceeds to combine these one item lists back into a single sorted list.
+
+Stable.
+
 =====================================================================
 =====================================================================
 
@@ -38,3 +57,24 @@ GENERAL SORTING ALGORITHM INFO
 
 [add something about stability here]
 [add factoids about sorting algo comparisons here]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

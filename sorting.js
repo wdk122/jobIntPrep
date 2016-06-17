@@ -67,18 +67,57 @@ var bubbleSort = function(items) {
 // ==================================================================
 
 var selectionSort = function(items) {
-  
-}
-
-// ==================================================================
-
-var shellSort = function(items) {
-
-}
+  var i,
+      j,
+      len = items.length,
+      mIndex,
+      temp;
+  for (i = 0; i < len - 1; i++) {
+    mIndex = i;
+    for (j = i; j < len; j++) {
+      if (items[j] < items[mIndex]) {
+        mIndex = j;
+      }
+    }
+    temp = items[i];
+    items[i] = items[mIndex];
+    items[mIndex] = temp;
+  }
+  return items;
+};
 
 // ==================================================================
 
 var mergeSort = function(items) {
+  var merge = function(left, right) {
+    var result = [];
+    il = 0,
+    ir = 0;
+
+    while (il < left.length && ir < right.length) {
+      if (left[il] < right[ir]) {
+        result.push(left[il]);
+        il++;
+      } else {
+        result.push(right[ir]);
+        ir++;
+      }
+    }
+    return result.concat(left.slice(il)).concat(right.slice(ir));
+  };
+  if (items.length < 2) {
+    return items;
+  }
+  var middle = Math.floor(items.length / 2),
+      left   = items.slice(0, middle),
+      right  = items.slice(middle);
+  return merge(mergeSort(left), mergeSort(right));
+};
+
+
+// ==================================================================
+
+var shellSort = function(items) {
 
 }
 
@@ -101,6 +140,14 @@ var quickSort = function(items) {
 // https://www.nczonline.net/blog/2012/09/17/computer-science-in-javascript-insertion-sort/
 // https://www.frankmitchell.org/2015/01/fisher-yates/
 // ==================================================================
+
+
+
+
+
+
+
+
 
 
 
