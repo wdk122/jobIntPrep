@@ -51,30 +51,16 @@ The merge sort function returns the array if length is less than 2. Otherwise, i
 Stable.
 
 =====================================================================
+
+QUICKSORT
+
+This quicksort function chooses a pivot point in the center of an array, and creates pointers to the first and last array elements. While the value at the left pointer is less than the pivot, the left pointer moves to the right, and vice versa for the right pointer. When the left pointer value is greater than or equal to the pivot and the right pointer value is less than or equal to the pivot, the left and right values are swapped, but the pointers retain their positions. The pointers keep moving toward each other and swapping if left >= pivot >= right. When the left pointer moves past the right, quicksort is recursively performed on each side of the current position of the left pointer.
+
+Not stable, not adaptive.
+
 =====================================================================
 
 GENERAL SORTING ALGORITHM INFO
 
 [add something about stability here]
 [add factoids about sorting algo comparisons here]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

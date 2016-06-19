@@ -117,6 +117,75 @@ var mergeSort = function(items) {
 
 // ==================================================================
 
+
+// left is left index pointer, vice versa for right
+var quickSort = function(items, left, right) {
+  var swap = function(items, firstIndex, secondIndex){
+    var temp = items[firstIndex];
+    items[firstIndex] = items[secondIndex];
+    items[secondIndex] = temp;
+  };
+  // partition chooses a pivot and puts things gt pivot 
+  // on right, lt pivot on left
+  // it returns the location of the left pointer, which is the new pivot
+  var partition = function(items, left, right) {
+
+    var pivot = items[Math.floor((right + left) / 2)],
+        i     = left,
+        j     = right;
+
+
+    while (i <= j) { // while left is left of or eq to right
+
+      // find something gtet pivot on left
+      while (items[i] < pivot) {
+        i++;
+      }
+      // find something ltet pivot on right
+      while (items[j] > pivot) {
+        j--;
+      }
+      
+      // if right and left ptrs found a pair to swap
+      // and the ptrs havent moved past each other yet:
+      if (i <= j) { 
+        swap(items, i, j);
+        i++;
+        j--;
+      }
+    }
+
+    return i;
+  };
+  var index;
+
+  if (items.length > 1) {
+
+    if (typeof left != 'number') {
+      left = 0;
+    }
+    if (typeof right != 'number') {
+      right = items.length - 1;
+    }
+
+    index = partition(items, left, right);
+
+    if (left < index - 1) {
+      quickSort(items, left, index - 1);
+    }
+
+    if (index < right) {
+      quickSort(items, index, right);
+    }
+  }
+  return items;
+}
+
+quickSort([2, 8, 3, 6, 4, 1, 5, 7, 9, 0]);
+
+
+// ==================================================================
+
 var shellSort = function(items) {
 
 }
@@ -127,12 +196,6 @@ var heapSort = function(items) {
 
 }
 
-// ==================================================================
-
-var quickSort = function(items) {
-
-}
-
 
 // ==================================================================
 // sources: 
@@ -140,29 +203,6 @@ var quickSort = function(items) {
 // https://www.nczonline.net/blog/2012/09/17/computer-science-in-javascript-insertion-sort/
 // https://www.frankmitchell.org/2015/01/fisher-yates/
 // ==================================================================
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
